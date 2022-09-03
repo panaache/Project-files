@@ -47,6 +47,14 @@ pipeline{
                 }
             }
         }
+        stage('Ansible Init:'){
+            steps{
+                dir(env.ANS_FOLDER){
+                    echo env.ANS_FOLDER
+                    sh 'ansible --version'
+                }
+            }
+        }
         stage('======= Execute Ansible Playbook ======='){
             steps{
                 dir(env.ANS_FOLDER){
